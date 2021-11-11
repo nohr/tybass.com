@@ -51,9 +51,9 @@ nav {
   font-family: forma-djr-text, sans-serif;
   font-weight: 900;
   font-style: normal;
-  border: cornsilk 2px solid;
+  border: rgb(255, 248, 220) 2px solid;
   border-radius: 25px;
-  color: cornsilk;
+  color: rgb(255, 248, 220);
 }
 
 .navItem:hover {
@@ -91,7 +91,7 @@ h2 {
   z-index: 100;
   line-height: 50px;
   overflow: visible;
-  fill: cornsilk;
+  fill: rgb(255, 248, 220);
   height: 180px;
   width: 415px;
 }
@@ -152,7 +152,7 @@ h2 {
 }
 .socials a svg {
   height: 40px;
-  fill: cornsilk;
+  fill: rgb(255, 248, 220);
 }
 @media only screen and (max-width: 425px) {
   nav {
