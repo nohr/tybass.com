@@ -21,9 +21,16 @@ body {
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  height: 50vh;
+  height: 35vh;
   align-self: flex-end;
   width: 100%;
+}
+.video {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: -50vh;
+  left: 0;
 }
 
 nav {
@@ -38,14 +45,13 @@ nav {
 }
 
 .navItem {
-  border-radius: 30;
   padding: 15px;
   height: fit-content;
   text-decoration: none;
   font-family: forma-djr-text, sans-serif;
   font-weight: 900;
   font-style: normal;
-  border: cornsilk 1px solid;
+  border: cornsilk 2px solid;
   border-radius: 25px;
   color: cornsilk;
 }
@@ -73,13 +79,21 @@ h2 {
   background-repeat: repeat;
   height: 100%;
 }
+.tag {
+  background-color: rgba(5, 5, 5, 0.411);
+  border-radius: 25px;
+}
 
-#home h1 {
-  font-size: 25vw;
-  justify-self: center;
-  margin: 0 auto;
+#home svg {
+  margin: 20px;
+  top: 0;
   position: relative;
   z-index: 100;
+  line-height: 50px;
+  overflow: visible;
+  fill: cornsilk;
+  height: 180px;
+  width: 415px;
 }
 
 #home p {
@@ -97,18 +111,63 @@ h2 {
   position: inherit;
   z-index: 50;
   flex-direction: column;
-  /* flex-flow: column, wrap; */
 }
 .musicWrap {
-  display: flexbox;
+  display: flex;
   justify-content: space-around;
   height: min-content;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.musicWrap img {
+  height: 50%;
 }
 
+.videoWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.video-container::after {
+  padding-top: 56.25%;
+  display: block;
+  content: "";
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.socials a svg {
+  height: 40px;
+  fill: cornsilk;
+}
 @media only screen and (max-width: 425px) {
   nav {
     position: fixed;
     bottom: 0;
+  }
+  h2 {
+    font-size: 15vw;
+    padding: 20px 0;
+  }
+  video {
+    top: 0 !important;
+    width: 150%;
+    height: auto;
+    /* height: 100%; */
   }
   .section h1 {
     margin: 20px 0;
@@ -124,20 +183,35 @@ h2 {
     /* gap: 50px; */
   }
   .heroOverlay {
-    /* width: 100%;
-    height: 100%;
-    z-index: 0; */
+    width: 100%;
+    height: 65%;
+    z-index: 0;
+    position: absolute;
+    z-index: 50;
     background: url("./img/plastic.png"),
       linear-gradient(
         180deg,
         rgba(0, 0, 0, 0) 0%,
-        rgba(221, 255, 0, 0.5103626943005182) 16%,
-        rgba(252, 255, 0, 1) 40%,
+        rgba(221, 255, 0, 0.5103626943005182) 46%,
+        rgba(252, 255, 0, 0.7) 60%,
         rgba(0, 212, 27, 1) 70%
       );
-    background-blend-mode: multiply;
+    background-blend-mode: darken;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    align-items: center;
+    align-content: center;
+  }
+  #home svg {
+    width: 70%;
+  }
+  .tag {
+    margin-top: 0px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    padding: 0 10px;
+    text-align: center;
+    align-self: flex-start;
   }
   .overlay {
     display: none;
@@ -146,16 +220,23 @@ h2 {
     width: 100%;
   }
   .art {
-    width: 100%;
+    width: 80%;
   }
-  iframe {
-    width: 100vw;
-    height: 70%;
+  .videoWrap {
+    margin: 30px 0;
+  }
+  .video-container iframe {
+    position: unset;
+  }
+  .video-container::after {
+    padding-top: 0% !important;
   }
   .socials {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    padding-bottom: 80px;
+    margin: 50px;
   }
   .socials img {
     width: 50px;
@@ -177,15 +258,16 @@ h2 {
     display: flex;
     flex-direction: column;
   }
+  nav {
+    top: 0;
+    bottom: unset;
+  }
   #home {
     height: min-content;
     height: 100vh;
     display: flex;
   }
-  #home h1 {
-    font-size: 12vw;
-    margin: 20px;
-  }
+
   #home p {
     align-self: flex-start;
     margin: 20px;
@@ -199,18 +281,17 @@ h2 {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50%;
-    z-index: 0;
+    height: 35%;
+    z-index: 20;
     background: url("./img/plastic.png"),
       linear-gradient(
         180deg,
         rgba(0, 0, 0, 0) 0%,
-        rgba(221, 255, 0, 0.5103626943005182) 16%,
-        rgba(252, 255, 0, 1) 40%,
+        rgba(221, 255, 0, 0.5103626943005182) 46%,
+        rgba(252, 255, 0, 0.7) 60%,
         rgba(0, 212, 27, 1) 70%
       );
-    background-blend-mode: multiply;
-    /* opacity: 75%; */
+    background-blend-mode: darken;
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
@@ -218,14 +299,13 @@ h2 {
   .section:not(#home) {
     background-size: contain;
   }
-  .section #music {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
+
   .art {
     height: 30%;
     width: auto;
+  }
+  .musicWrap {
+    margin: 20px 20%;
   }
   .socials {
     width: 100%;
