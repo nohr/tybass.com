@@ -10,10 +10,10 @@ html {
 }
 
 body {
-  background-image: url("./img/hero.JPG");
+  /* background-image: url("./img/hero.JPG");
   background-position: center top;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: 100% auto; */
   height: 100%;
 }
 
@@ -24,13 +24,6 @@ body {
   height: 35vh;
   align-self: flex-end;
   width: 100%;
-}
-.video {
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top: -50vh;
-  left: 0;
 }
 
 nav {
@@ -101,7 +94,6 @@ h2 {
 #home p {
   margin: 10vw 20px 0px;
   align-self: center;
-  text-indent: 20px;
   font-family: forma-djr-text, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -123,7 +115,7 @@ h2 {
   gap: 30px;
 }
 .musicWrap a img {
-  height: 50%;
+  width: 100%;
 }
 
 .videoWrap {
@@ -156,7 +148,9 @@ h2 {
   height: 40px;
   fill: rgb(255, 248, 220);
 }
-@media only screen and (max-width: 425px) {
+
+/* Mobile */
+@media screen and (max-width: 428px) {
   body {
     background-image: none;
   }
@@ -168,11 +162,10 @@ h2 {
     font-size: 15vw;
     padding: 20px 0;
   }
-  video {
+  .video {
     top: 0 !important;
-    width: 101%;
-    height: auto;
-    /* height: 100%; */
+    width: 100%;
+    height: fit-content;
   }
   .section h1 {
     margin: 20px 0;
@@ -257,13 +250,8 @@ h2 {
   }
 }
 
-/* @media only screen and (min-width: 768px) {
-  body {
-    background-position: 50% -25vw;
-  }
-} */
-
-@media only screen and (min-width: 425px) {
+/* Desktop */
+@media only screen and (min-width: 428px) {
   body {
     background-position: 50% -50vw;
     display: flex;
@@ -272,6 +260,13 @@ h2 {
   nav {
     top: 0;
     bottom: unset;
+  }
+  .video {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0;
   }
   #home {
     height: min-content;
